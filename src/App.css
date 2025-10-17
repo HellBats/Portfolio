@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Minecraft';
+  src: url('/minecraft-font/MinecraftRegular-Bmg3.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@theme {
+  --font-minecraft: "Minecraft", sans-serif;
+}
+
+
+@theme {
+  --font-sans: "Minecraft", sans-serif;
+}
+
+.navbar_elements
+{
+    @apply m-3 pl-10
+}
