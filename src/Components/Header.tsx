@@ -8,7 +8,7 @@ const NavBar = () =>
             <div className="grow flex flex-row-reverse">
                 <div className="navbar_elements">Contact Me</div>
                 <div className="navbar_elements">
-                    <a href="/Personal.pdf"  target="_blank" rel="noopener noreferrer">
+                    <a href="/files/Personal.pdf"  target="_blank" rel="noopener noreferrer">
                     Resume</a></div>
                 <div className="navbar_elements">Projects</div>
                 <div className="navbar_elements">About</div>
