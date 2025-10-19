@@ -1,7 +1,8 @@
-
-import NavBar from './Components/Header'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-import Profile from './Components/Profile'
+import NavBar from './Components/Header'
+import Home from './Pages/Home'
+import Projects from './Pages/Projects'
 
 
 
@@ -9,10 +10,13 @@ import Profile from './Components/Profile'
 const App = () => 
 {
   return(
-    <div className='text-white'>
-      <NavBar></NavBar>
-      <Profile></Profile>
-    </div>
+    <BrowserRouter>
+      {<NavBar/>}
+      <Routes>
+        <Route path="/" element={<Home></Home>}/>
+        <Route path="/projects" element={<Projects/>}/>
+      </Routes>
+    </BrowserRouter>
     )
 }
 

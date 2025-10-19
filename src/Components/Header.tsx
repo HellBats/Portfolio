@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const NavBar = () => 
@@ -10,7 +11,9 @@ const NavBar = () =>
                 <div className="navbar_elements">
                     <a href="/files/Personal.pdf"  target="_blank" rel="noopener noreferrer">
                     Resume</a></div>
-                <div className="navbar_elements">Projects</div>
+                <div className="navbar_elements">
+                    <Link to="/projects">Projects</Link>
+                </div>
                 <div className="navbar_elements">About</div>
             </div>
         </div>
