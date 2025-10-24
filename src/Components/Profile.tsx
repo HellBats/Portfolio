@@ -8,6 +8,7 @@ export interface profile
     Name:String,
     Aboutme:String,
     RepoName:String
+    Tagline:String
 }
 
 const Profile = () => 
@@ -21,7 +22,7 @@ const Profile = () =>
 
     // 4. Render based on the store's state
     if (loading) {
-        return <h1 className="flex flex-row justify-center text-2xl py-50">Loading your Profile...</h1>;
+        return <h1 className="flex flex-row justify-center text-2xl py-50">Loading Profile...</h1>;
     }
 
     if (error) {

@@ -147,7 +147,7 @@ const Projects = () => {
 
   // 6. Render the projects
   return (
-    <div className="my-10">
+    <div className="my-10 flex flex-wrap">
       {projects.map((project) => (
         <ProjectCard
           key={project.name}

@@ -5,6 +5,7 @@ interface profile {
   Name: string;
   Aboutme: string;
   RepoName: string;
+  Tagline:String;
 }
 
 // 2. Define the interface for the *entire* store state and actions
@@ -17,7 +18,7 @@ interface ProfileStoreState {
 
 // 3. Pass the store interface to 'create'
 const useProfile = create<ProfileStoreState>((set) => ({
-  pro: { Name: "", Aboutme: "", RepoName: "" }, // Initial state
+  pro: { Name: "", Aboutme: "", RepoName: "" , Tagline:""}, // Initial state
   loading: false,
   error: null,
 
