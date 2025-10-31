@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import useProfile from "../Hooks/store";
+import { Draggable } from "../Components/Draggable";
 import profile_picture from "../assets/Profile.png"
+import ProjectCard from "../Components/ProjectCard";
 
 
 const Home = () =>
@@ -21,13 +23,17 @@ const Home = () =>
         return <h1 className="flex flex-row justify-center text-2xl py-50">Error: {error}</h1>;
     }
     return(
-        <div className="mx-50 mt-6 justify-center">
-            <div className="flex flex-col justify-center">
-                <h1 className="text-5xl p-2 font-minecraft" >Hello, I am {pro.Name}</h1>
-                <p className="w-2xl text-xl p-2 font-minecraft">
-                    {pro.Tagline}
-                </p>
-            </div>
+        <div> 
+            <Draggable initialPosition={{ x: 150, y: 150 }}>
+                <div className="bg-gray-500 border-10">
+                    <img src={profile_picture} className="w-56" draggable={false}></img>
+                </div>
+            </Draggable>
+            <Draggable initialPosition={{ x: 600, y: 180 }}>
+                <div className="rounded-2xl">
+                    <ProjectCard name={"RayTracer"} description={"A high-performance ray tracing engine built with CUDA for real-time rendering."}></ProjectCard>
+                </div>
+            </Draggable>
         </div>
     );
 }

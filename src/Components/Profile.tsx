@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import profile_picture from "../assets/Profile.png"
 import useProfile from "../Hooks/store";
 
