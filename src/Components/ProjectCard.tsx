@@ -2,28 +2,49 @@
 interface Project {
   name: string;
   description: string | null;
-//   language: string | null;
-//   html_url: string;
-//   topics: [string] | [];
+  html_url: string;
+  topics: string[] | [];
+  picture: string | null;
 }
 
 
 const ProjectCard = (repo:Project) =>
 {
     return(
-        <div className="flex flex-col w-64 h-72 bg-amber-50 text-black rounded-l" >
-            <div className="text-2xl mr-10 px-2 mt-5">{repo.name}</div>
-            {/* <div className="border-1 px-2 flex flex-wrap h-8">
-                {repo.topics.map((element) => (<div className="px-2">{element.charAt(0).toUpperCase()
-                    + element.slice(1)}</div>))}
-            </div> */}
-            <p className=" px-2">{repo.description || ""}</p>
-            {/* <div className="px-2">
-                <a href={repo.html_url}>
-                    <div className="text-fuchsia-700">Github</div>
+        <div className="flex flex-col max-w-xl bg-newspaper text-ink border border-paperborder rounded-l overflow-hidden">
+        {/* Repo name */}
+        <div className="flex justify-center"><div className="text-4xl mr-10 px-2 mt-5 font-semibold">{repo.name}</div></div>
+
+        {/* Description + Image */}
+        <div className="flex flex-row">
+            {/* Text section */}
+            <div className="flex flex-col w-1/2 p-2 mx-3 text-justify">
+            <p className="text-sm">{repo.description || ""}</p>
+            <div className="text-sm break-all">
+                For more information go to{" "}
+                <a
+                href={repo.html_url}
+                className=" underline "
+                >
+                {repo.html_url}
                 </a>
-            </div> */}
+            </div>
+            </div>
+
+            {/* Image section */}
+            {repo.picture ? (
+            <div className="w-1/2 h-auto overflow-hidden">
+                <img
+                src={repo.picture}
+                alt="Repository visual"
+                className="w-full h-full object-cover filter grayscale sepia-50 contrast-90 brightness-95 p-2 "
+                draggable={false}
+                />
+            </div>
+            ) : null}
         </div>
+        </div>
+
     )
 
 }

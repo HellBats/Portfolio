@@ -12,7 +12,7 @@ const App = () =>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={
-          <div className="h-screen w-screen bg-orange-300 border-20 border-yellow-600 text-white flex items-center justify-center">
+          <div className="h-screen w-screen bg-orange-300 text-white flex items-center justify-center">
             <Home></Home>
             </div>
           }/>

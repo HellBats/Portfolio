@@ -5,7 +5,7 @@ interface DraggableProps {
   initialPosition?: { x: number; y: number };
 }
 
-export const Draggable: React.FC<DraggableProps> = ({
+const Draggable: React.FC<DraggableProps> = ({
   children,
   initialPosition = { x: 100, y: 100 },
 }) => {
@@ -40,3 +40,5 @@ export const Draggable: React.FC<DraggableProps> = ({
     </div>
   );
 };
+
+export default Draggable;
