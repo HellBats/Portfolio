@@ -1,3 +1,4 @@
+
 interface Project {
   name: string;
   description: string | null;
@@ -10,7 +11,9 @@ interface Project {
 const ProjectCard = (repo:Project) =>
 {
     return(
-        <div className="flex flex-col max-w-xl bg-[url(src/assets/news_texture.jpg)] text-ink border border-paperborder rounded-l overflow-hidden">
+        <div
+      className="flex flex-col max-w-xl bg-news-texture text-ink border border-paperborder rounded-l overflow-hidden"
+    >
         {/* Repo name */}
         <div className="flex justify-center"><div className="text-4xl mr-10 px-2 mt-5 font-semibold">{repo.name}</div></div>
 

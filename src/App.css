@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
-
+@theme {
+  --background-image-news-texture: url('assets/news_texture.jpg');
+}
 @tailwind utilities;
 
 body
