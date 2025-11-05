@@ -16,12 +16,17 @@ const Draggable: React.FC<DraggableProps> = ({
   const [pos, setPos] = useState(initialPosition);
   const [dragging, setDragging] = useState(false);
   const offset = useRef({ x: 0, y: 0 });
-
+  const divRef = useRef<HTMLDivElement | null>(null);
+  const [pin_position,set_pin_position] = useState(0);
   // Set initial position in global store ONCE
   useEffect(() => {
-    setPosArray(id, initialPosition.x +100, initialPosition.y+20);
+    if (divRef.current) {
+      const width = divRef.current.clientWidth;
+      set_pin_position(width / 2);
+      setPosArray(id, initialPosition.x + pin_position, initialPosition.y+15);
+    }
     // Add all dependencies for this effect
-  }, []); 
+  }, [pin_position]); 
 
   // This effect will now handle ALL drag logic
   useEffect(() => {
@@ -39,7 +44,7 @@ const Draggable: React.FC<DraggableProps> = ({
       // Update local state for visual position
       setPos({ x: newX, y: newY });
       // Update global state for connector line
-      setPosArray(id, newX+100, newY+20);
+      setPosArray(id, newX+pin_position, newY+15);
     };
 
     const handleMouseUp = () => {
@@ -63,6 +68,7 @@ const Draggable: React.FC<DraggableProps> = ({
   // This is a React MouseEvent
   const handleMouseDown = (e: ReactMouseEvent<HTMLDivElement>) => {
     // Prevent default drag behavior (like text selection)
+    if (e.button==1) return false;
     e.preventDefault(); 
     
     setDragging(true);
@@ -73,6 +79,7 @@ const Draggable: React.FC<DraggableProps> = ({
   return (
     // We remove the mousemove/mouseup handlers from here
       <div
+        ref={divRef}
         onMouseDown={handleMouseDown}
         className={`${dragging ? "cursor-grabbing" : "cursor-grab"}`}
         style={{ position: "fixed",left: `${pos.x}px`, top: `${pos.y}px` }}

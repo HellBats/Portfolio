@@ -1,5 +1,6 @@
 import React from "react";
 import type { Drag } from "../Hooks/store";
+import Pin from "./Pin";
 
 
 
@@ -31,10 +32,8 @@ const ConnectorLine: React.FC<ConnectorLineProps> = ({
         strokeWidth={width}
         strokeDasharray={dashed ? "6 3" : "none"}
       />
-      <circle r="10" cx={start.x-5} cy={start.y+5} fill="#CA2020" />
-      <circle r="10" cx={start.x} cy={start.y} fill="#DA2222" />
-      <circle r="10" cx={end.x-5} cy={end.y+5} fill="#CA2020" />
-      <circle r="10" cx={end.x} cy={end.y} fill="#DA2222" />
+      <Pin pos={start} ></Pin>
+      <Pin pos={end} ></Pin>
     </svg>
   );
 };
