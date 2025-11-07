@@ -5,22 +5,24 @@ import {useDrag } from "../Hooks/store";
 import ConnectorLine from "../Components/ConnectorLine";
 import Canvas from "../Components/Canvas";
 import SuspectCard from "../Components/SuspectCard";
+import Map from "../Components/Map";
 
 
 
 
 const Home = () =>
 {
-    const a = useDrag((state) => state.components[0]);
-    const b = useDrag((state) => state.components[1]);
+    const pos1 = useDrag((state) => state.components[0]);
+    const pos2 = useDrag((state) => state.components[1]);
+    const pos3 = useDrag((state) => state.components[2]);
     return(
         <Canvas>
         <div className="absolute w-full h-full"> 
             {/* <ConnectorLine start={{ x: 150, y: 150 }} end = {{ x: 600, y: 180 }}></ConnectorLine> */}
-            <Draggable initialPosition={{ x: 150, y: 150 }} id={0}>
+            <Draggable initialPosition={{ x: 1500, y: 150 }} id={0}>
                 <SuspectCard></SuspectCard>
             </Draggable>
-            <Draggable initialPosition={{ x: 600, y: 180 }} id={1}>
+            <Draggable initialPosition={{ x: 1800, y: 800 }} id={1}>
                 <div className="rounded-2xl shadow-2xl">
                     <ProjectCard 
                     name={"RayTracer"} 
@@ -30,7 +32,9 @@ const Home = () =>
                     picture={ray_tacer}></ProjectCard>
                 </div>
             </Draggable>
-            {a && b && <ConnectorLine start={a} end={b}></ConnectorLine>}
+            <Draggable initialPosition={{ x: 1000, y: 700 }} id={2}><Map></Map></Draggable>
+            {pos1 && pos2 && <ConnectorLine start={pos1} end={pos2}></ConnectorLine>}
+            {pos1 && pos3 && <ConnectorLine start={pos1} end={pos3}></ConnectorLine>}
         </div> 
         </Canvas>
     );
