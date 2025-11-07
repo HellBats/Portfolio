@@ -16,7 +16,7 @@ const ConnectorLine: React.FC<ConnectorLineProps> = ({
   start,
   end,
   color = "#EC4642",
-  width = 2,
+  width = 4,
   dashed = false,
 }) => {
   

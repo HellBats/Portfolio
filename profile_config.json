@@ -1,6 +1,21 @@
 {
-    "Name" : "Vishal",
-    "Tagline" : "I build curious ideas into software.",
-    "Aboutme" : "I am driven by curiosity and a constant hunger for knowledge.My passion for understanding how things work has led me to explore multiple subfields of computer science and engineering.From delving into the fundamentals of Computer Architecture and Computer Graphics to experimenting with cutting-edge technologies,I believe that true learning comes from exploration,and I’m always eager to dive deeper into new challenges that push my technical and creative boundaries.",
-    "RepoName" : "HellBats"
+    "projects":
+    [
+        {
+            "Name":"RayTracer",
+            "Description":"A high-performance ray tracing engine built with CUDA for real-time rendering. This project supports reflection, refraction, and Fresnel effects, making it capable of simulating realistic materials like glass and mirrors. It demonstrates physically-based rendering concepts, optimized GPU acceleration, and interactive scene visualization.",
+            "Url":"https://github.com/HellBats/RayTracer"
+        },
+        {
+            "Name":"LC3-Box",
+            "Description":"A virtual machine simulating the LC-3 architecture, capable of running any assembled LC-3 program.",
+            "Url":"https://github.com/HellBats/LC3-Box"
+        },
+        {
+            "Name":"Notes-Solana",
+            "Description":"This Project is a tutorial project that I made while learning Solana on-chain native development.",
+            "Url":"https://github.com/HellBats/Notes-Solana"
+        }
+        
+    ]
 }

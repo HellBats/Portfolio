@@ -6,35 +6,63 @@ import ConnectorLine from "../Components/ConnectorLine";
 import Canvas from "../Components/Canvas";
 import SuspectCard from "../Components/SuspectCard";
 import Map from "../Components/Map";
+import profile_config from "../../profile_config.json"
 
 
-
+interface Profile
+{
+    projects: {
+        Name: string;
+        Description: string;
+        Url: string;
+    }[];
+}
 
 const Home = () =>
 {
+    const profile:Profile = profile_config;
     const pos1 = useDrag((state) => state.components[0]);
     const pos2 = useDrag((state) => state.components[1]);
     const pos3 = useDrag((state) => state.components[2]);
+    const pos4 = useDrag((state) => state.components[3]);
+    const pos5 = useDrag((state) => state.components[4]);
     return(
         <Canvas>
         <div className="absolute w-full h-full"> 
             {/* <ConnectorLine start={{ x: 150, y: 150 }} end = {{ x: 600, y: 180 }}></ConnectorLine> */}
-            <Draggable initialPosition={{ x: 1500, y: 150 }} id={0}>
+            <Draggable initialPosition={{ x: 1800, y: 700 }} id={0}>
                 <SuspectCard></SuspectCard>
             </Draggable>
-            <Draggable initialPosition={{ x: 1800, y: 800 }} id={1}>
+            <Draggable initialPosition={{ x: 2700, y: 800 }} id={1}>
                 <div className="rounded-2xl shadow-2xl">
                     <ProjectCard 
-                    name={"RayTracer"} 
-                    description={"A high-performance ray tracing engine built with CUDA for real-time rendering. This project supports reflection, refraction, and Fresnel effects, making it capable of simulating realistic materials like glass and mirrors. It demonstrates physically-based rendering concepts, optimized GPU acceleration, and interactive scene visualization."}
-                    topics = {["CUDA", "C++"]}
-                    html_url="https://github.com/HellBats/RayTracer"
+                    name={profile.projects[0].Name} 
+                    description={profile.projects[0].Description}
+                    html_url={profile.projects[0].Url}
                     picture={ray_tacer}></ProjectCard>
                 </div>
             </Draggable>
-            <Draggable initialPosition={{ x: 1000, y: 700 }} id={2}><Map></Map></Draggable>
+            <Draggable initialPosition={{ x: 700, y: 800 }} id={2}>
+                <div className="rounded-2xl shadow-2xl">
+                    <ProjectCard 
+                    name={profile.projects[1].Name} 
+                    description={profile.projects[1].Description}
+                    html_url={profile.projects[1].Url}></ProjectCard>
+                </div>
+            </Draggable>
+            <Draggable initialPosition={{ x: 1200, y: 300 }} id={3}>
+                <div className="rounded-2xl shadow-2xl">
+                    <ProjectCard 
+                    name={profile.projects[2].Name} 
+                    description={profile.projects[2].Description}
+                    html_url={profile.projects[2].Url}></ProjectCard>
+                </div>
+            </Draggable>
+            <Draggable initialPosition={{ x: 1400, y: 1200 }} id={4}><Map></Map></Draggable>
             {pos1 && pos2 && <ConnectorLine start={pos1} end={pos2}></ConnectorLine>}
             {pos1 && pos3 && <ConnectorLine start={pos1} end={pos3}></ConnectorLine>}
+            {pos1 && pos4 && <ConnectorLine start={pos1} end={pos4}></ConnectorLine>}
+            {pos1 && pos5 && <ConnectorLine start={pos1} end={pos5}></ConnectorLine>}
         </div> 
         </Canvas>
     );

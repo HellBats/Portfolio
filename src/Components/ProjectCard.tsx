@@ -3,8 +3,7 @@ interface Project {
   name: string;
   description: string | null;
   html_url: string;
-  topics: string[] | [];
-  picture: string | null;
+  picture?: string | null;
 }
 
 
